@@ -108,15 +108,18 @@ Contar numero de espacios, sin contar los esapcios al inicio y al final
 // Mandar en consolo el resultado 
 
 let word = prompt("Introduce una palabra para descubrir si es o no un palindromo").toLowerCase().trim()
-let first = ""
-let last = ""
+let wordNoSpaces = word.replace(/ /g, "")
+let wordReversed = ""
 
-    word.replace(" ","")
-
-    if(word.length % 2 == 0){
-        console.log("Los palindromos no pueden tener una longitud par")
-    }else{
-        for(first = word.length / 2 >= 0; first<= 0; first-- ){
-            if(first)
-    }
+for(let i = wordNoSpaces.length-1; i>=0; i--){
+    wordReversed += wordNoSpaces[i]
 }
+    
+if(wordReversed === wordNoSpaces){
+    console.log(`La palabra ${word} es un palindromo`)
+}else{
+    console.log(`La palabra ${word} no es un palindromo`)
+}
+
+    console.log(wordNoSpaces)
+    console.log(wordReversed)
