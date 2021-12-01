@@ -118,4 +118,6 @@ funtcion sunNumbers(a, b, c = 5){
     }return suma
 
 sumNumbers(10, 15)
+
+Investigar las Arrow Functions hola()=>{}
 */
