@@ -42,7 +42,6 @@ const palindrome = (pal= 'Isáac no ronca así') => {
 */
 
 
-
 const arrayReduce = (arrOne, arrTwo) => {
     let newArr = arrOne.concat(arrTwo)
     let arrAdd = 0

@@ -1,123 +1,92 @@
-// // Funcion con parametros
-
-// function suma (a,b) {
-//     console.log(`la suma de ${a} más ${b} es igual a ${a+b}`)
-// }
-
-// suma(10, 20)
-
-// //Funcion sin parametros
-
-// function multiplicar () {
-//     console.log(2 * 2)
-// }
-
-// multiplicar()
-
-// function toCelsius(fahrenheit) {
-//     let celsiusGrades = ( ( 5 / 9 ) * ( fahrenheit -32 ) )
-
-//     return
-// }
-
-// let celsiusGradesReturned = toCelsius(10)
-
-// console.log(celsiusGradesReturned)
-
-
-//Funcion que pude el nombre y lo imprime en consola
-
-
-// function nameConsole(nameFunction){
-//     console.log(nameFunction)
-// }
-
-
-// const superName = prompt("Introduce tu nombre")
-
-// nameConsole(superName)
-
-// let nameReversed = ""
-
-
-// function reversed(nameToReverse){
-//     let newWord = ""
-//     for(let i = nameToReverse.length - 1; i <= 0; i --){
-//         newWord += nameToReverse[i]
-//     }return newWord
-
-// }
-
-// reversed(superName)
-
-
-// FUNCTION 1 
-// --------------------------------------------------------------------
-
-function tablas(){
-    for(i = 0; i<= 10 ; i++){
-        console.log(`Tabla del ${i}`)
-        for(j = 0; j <= 10 ; j ++){
-            console.log(`${i} * ${j} = ${i*j}`)
+const mostBigger = (arr) => {
+    console.log(arr)
+    let biggest = arr[0]
+    arr.forEach( ( value, index, array ) => {
+        if(biggest < value){
+            biggest = value
         }
-    }
+    })
+    return biggest
 }
 
-tablas()
-
-//FUNCTION 2
-// --------------------------------------------------------------------
-
-function sumaN (newNum){
-    let resultado = 0
-    for(i = 0; i <= newNum; i++){
-        resultado = resultado + i
-    }
-    return console.log(`la suma total de los numeros del 0 al ${newNum} esigual a ${resultado}`)
-}
-
-sumaN(55)
-
-
-//FUNCTION 4
-// --------------------------------------------------------------------
-
-function sumaDigitos(cantidad){
-    for(i = 0; i < cantidad.length; i++){
-        sumatoria +=  parseInt(cantidad[i])
-    }return console.log(`la suma de los valores de ${digitos} es igual a  ${sumatoria}`)
-}
-
-let digitos = prompt("introduce una cantidad")
-let sumatoria = 0
-
-sumaDigitos(digitos)
-
-
-// FUNCTION 5
-// --------------------------------------------------------------------
-function sumaMultiplos(){
-    let multiplos = 0
-    for (i = 100; i >= 1; i--){
-        if(i % 3 === 0 && i % 5 === 0 ){
-            multiplos = multiplos + i        
+const mostSmaller = (arr) => {
+    console.log(arr)
+    let smaller = arr[0]
+    arr.forEach( ( value, index, array ) => {
+        if(smaller > value){
+            smaller = value
         }
-    }
-    return console.log(`La suma total de los multiplos es ${multiplos}`)
+    })
+    return smaller
 }
 
-sumaMultiplos()
+// arr.map()
+// MAP MAP MAP MAP MAP MAP MAP MAP
 
-// --------------------------------------------------------------------
+// let resultado = [1,2,3,4,5].map( (val, index, arr) => {
+//     let newVal = val * 2
+//     return newVal
+// })
 
-//Parametros por Default
+// console.log(resultado)
 
-/*
-funtcion sunNumbers(a, b, c = 5){
-    let suma = a +b +c
-    }return suma
 
-sumNumbers(10, 15)
 
-Investigar las Arrow Functions hola()=>{}
-*/
+
+// const stringNum = [1,2,3,4,5].map( ( val, index, arr) => {
+//     let stringNumConverted = val.toString()
+//     return stringNumConverted
+// })
+
+
+// const stringNum = ( arr ) => arr.map( ( val ) =>  val.toString() )
+
+// let nombreVar = stringNum([3,2,1,4])
+// console.log(nombreVar)
+
+
+
+// .map()
+// función
+// Dado unn array como parametro 
+// capitalizar todos los elementos que sean strings
+// typeof variable
+// input: ['hOlA', 'mundo', 123]
+// output -> ['Hola','Mundo', 123]
+
+
+const capitalizerArr = (arr) => {
+
+    let arrCapitalized = []
+
+    arrCapitalized = arr.map( element => {
+        if(typeof element === 'string'){
+            let stringCap = `${element.slice(0,1).toUpperCase()}${element.slice(1).toLowerCase()}`
+            return stringCap
+        } else {
+            return element
+        }
+    })
+
+    return arrCapitalized
+}
+
+let resultCap = capitalizerArr(['hOlA', 'mundo', 123])
+console.log(resultCap)
+
+
+
+// arr.filter()
+
+const arrayCitys = ['ciudad', 'cdmx', 'monterrey', 'guadalajara']
+
+// arrayCitys.filter( function() {
+
+// })
+
+let resultFilter = arrayCitys.filter( ( cv, index, arr) => {
+    if(cv.slice(0,1) === 'c')
+        return cv
+})
+
+console.log(resultFilter)
