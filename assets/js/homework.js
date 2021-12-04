@@ -83,47 +83,136 @@
 //  EJERCICIO 
 //  MAP
 
-const capitalizer = arrStrings => {
-    let capArrays = [], primera = "", ultima = ""
-    capArrays = arrStrings.map( ( item ) =>{
-        primera = item.slice(0,1).toUpperCase() 
-        ultima = item.slice(1).toLowerCase()
-        return primera + ultima
-    })
-    return capArrays
-}
+// const capitalizer = arrStrings => {
+//     let capArrays = [], primera = "", ultima = ""
+//     capArrays = arrStrings.map( ( item ) =>{
+//         primera = item.slice(0,1).toUpperCase() 
+//         ultima = item.slice(1).toLowerCase()
+//         return primera + ultima
+//     })
+//     return capArrays
+// }
 
-capitalizer(["EMIlio" , "MeDIna", "PIneda"])
+// capitalizer(["EMIlio" , "MeDIna", "PIneda"])
 
 
-// FILTER 
+// // FILTER 
 
-// let arrToFilter = [1,2,3,4,5,6,7]
-// let arrFiltered = arrToFilter.filter( (item) => item % 2 === 0)
+// // let arrToFilter = [1,2,3,4,5,6,7]
+// // let arrFiltered = arrToFilter.filter( (item) => item % 2 === 0)
+// // console.log(arrFiltered)
+
+// // 
+// /*
+// ["Hola", "mundo", 0, 5]
+// 1. funcion
+// 2. Filtrar solo los de tipo String
+//  */
+
+
+// // EJERCICIO FILTER 
+
+// let arrToFilter = ["Hola", "mundo", 0, 5, true, "Koders"]
+// // let arrFiltered = arrToFilter.filter( (item) => 
+// // {typeof item == 'string'})
+// let arrFiltered = arrToFilter.filter( item => typeof item == 'string')
 // console.log(arrFiltered)
 
-// 
-/*
-["Hola", "mundo", 0, 5]
-1. funcion
-2. Filtrar solo los de tipo String
+// //  SIntaxis de REduce 
+
+// let acumulador = 0
+// let arr = [1,2,3]
+
+// let suma = arr.reduce((acc, cv, index, arr) => {
+//     console.log(acc, cv)
+//     return acc + cv
+// }, 0)
+
+
+
+
+
+/**
+ * arr.forEach()
+ * Dado el siguiente array 
+ * ['string','value','min','asdfghjk']
+ * Hacer una funcion que devuelva el string con mas caracteres
+ * 
+ */
+
+//  const mostLarge  = (arr) => {
+//     let longest = [arr[0]]
+//     arr.forEach(  element => {
+//         if(element.length > longest.length){
+//             longest = element
+//             console.log(longest)
+//         }return console.log(longest)
+//     });
+// }
+
+const mostLarge  = (arr) => {
+    let longest = [arr[0]]
+    arr.forEach(  ( element ) => { if( element.length > longest.length ) {
+        longest = element
+        }
+    })
+    return longest
+}
+
+
+let palabras = (["string", "value", "min","asdasdas" ,"asdñlkasdñlk", "asdfghjk"])
+mostLarge(palabras)
+
+/**
+ * arr.map()
+ * Dado un array 
+ * Hacer una funcion que devuelva el mismo array
+ * Pero con los items al reves
+ * P.ej. reverseStringArr( ['string','value','min'] )
+ * Salida: ['gnirts','eulav','nim']
+ * 
  */
 
 
-// EJERCICIO FILTER 
+// const reverseStringArr  = (arr) => {
+//     let reversed = []
+//     arr.map( ( val ) => {
+//         reversed.push((val.split("").reverse().join("")))
+//     })
+//     return reversed
+// }
 
-let arrToFilter = ["Hola", "mundo", 0, 5, true, "Koders"]
-// let arrFiltered = arrToFilter.filter( (item) => 
-// {typeof item == 'string'})
-let arrFiltered = arrToFilter.filter( item => typeof item == 'string')
-console.log(arrFiltered)
+// const reverseStringArr  = (arr) => {
+//     let newStrings = []
+//     arr.map( ( val ) => {
+//         newStrings.push((val.split("").reverse().join("")))
+//     })
+//     return newStrings
+// }
 
-//  SIntaxis de REduce 
 
-let acumulador = 0
-let arr = [1,2,3]
+const reverseStringArr  = (arr) => {
+    arr.map( ( val ) => {
+        return console.log(val.split("").reverse().join(""))
+    })
+}
 
-let suma = arr.reduce((acc, cv, index, arr) => {
-    console.log(acc, cv)
-    return acc + cv
-}, 0)
+reverseStringArr(palabras)
+
+
+
+/**
+ * arr.filter(), .map()
+ * Funcion que reciba un array de strings y numeros
+ * Filtre solo los strings
+ * luego, Capitalice cada string
+ * luego, filtre solo los que tengan mas de 5 caracteres
+ * y al final, los que tengan al menos 2 letras "a" 
+ * 
+ * p.ej.  filterStrings( ['guadalajara', 3, 'caracas', 'Oslo', 'brasil', 0] )
+ * Salida -> ['Guadalajara', 'Caracas']
+ */
+
+// const filterStrings  = (arr) => {
+    
+// }
