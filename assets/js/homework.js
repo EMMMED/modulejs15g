@@ -150,18 +150,18 @@
 //     });
 // }
 
-const mostLarge  = (arr) => {
-    let longest = [arr[0]]
-    arr.forEach(  ( element ) => { if( element.length > longest.length ) {
-        longest = element
-        }
-    })
-    return longest
-}
+// const mostLarge  = (arr) => {
+//     let longest = [arr[0]]
+//     arr.forEach(  ( element ) => { if( element.length > longest.length ) {
+//         longest = element
+//         }
+//     })
+//     return longest
+// }
 
 
-let palabras = (["string", "value", "min","asdasdas" ,"asdñlkasdñlk", "asdfghjk"])
-mostLarge(palabras)
+// let palabras = (["string", "value", "min","asdasdas" ,"asdñlkasdñlk", "asdfghjk"])
+// mostLarge(palabras)
 
 /**
  * arr.map()
@@ -191,13 +191,13 @@ mostLarge(palabras)
 // }
 
 
-const reverseStringArr  = (arr) => {
-    arr.map( ( val ) => {
-        return console.log(val.split("").reverse().join(""))
-    })
-}
+// const reverseStringArr  = (arr) => {
+//     arr.map( ( val ) => {
+//         return console.log(val.split("").reverse().join(""))
+//     })
+// }
 
-reverseStringArr(palabras)
+// reverseStringArr(palabras)
 
 
 
@@ -216,3 +216,5 @@ reverseStringArr(palabras)
 // const filterStrings  = (arr) => {
     
 // }
+
+
