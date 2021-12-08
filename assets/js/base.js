@@ -24,3 +24,14 @@ const getFullName = (fullName) => {
 }
 
 getFullName(["Emilio", "Medina", "Pineda"])
+
+// De un correo convertir a **** hasta el arroba
+
+let correo = 'personal.emedina@gmail.com'
+let newCorreo = ''
+
+for(let i = 0; i <= correo.indexOf("@"); i++){
+    newCorreo += "*"
+}
+
+console.log(newCorreo)
