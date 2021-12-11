@@ -118,12 +118,12 @@
 /**
  *  Tarea 2
  * Estudiar lo siguiente:
- * 1. innerHTML
- * 2. insertBefore()
- * 3. insertAfter()
- * 4. append()
- * 5. prepend()
- * 6. removeChild()
- * 7. DOM events
+ * 1. innerHTML 
+ * 2. insertBefore() lo inserta antes del elemento que le indiques
+ * 3. insertAfter() Lo inserta despuies del elemento que le indiques
+ * 4. append() Inseta el elemento como ultimo hijo del padre seleccionado
+ * 5. prepend() Inserta el elemento como primer hijo del padre seleccionado
+ * 6. removeChild() Remueve el hijo que le indiques, retorna ese hijo removido
+ * 7. DOM events click, dblclick, focus, focusin, focusout
  * 
  */
