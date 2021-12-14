@@ -14,116 +14,137 @@
  * 
  */
 
-    //  Create Elements
-    let ulElement = document.createElement('ul')
-    ulElement.textContent = "Dom Manipulation"
-
-    let liFirst = document.createElement('li')
-    liFirst.textContent = "HOTELES "
-
-    let liSecond = document.createElement('li')
-    liSecond.textContent = "OFERTAS"
-
-    let liThird = document.createElement('li')
-    liThird.textContent = "VIAJES"
-
-    let liFour = document.createElement('li')
-    liFour.textContent = "AYUDA"
-
-    let liFive = document.createElement('li')
-    liFive.textContent = "CANCELACIONES"
-
-    //  Append Elements
-    ulElement.appendChild(liFirst)
-    ulElement.appendChild(liSecond)
-    ulElement.appendChild(liThird)
-    ulElement.appendChild(liFour)
-    ulElement.appendChild(liFive)
-    document.getElementsByTagName('body')[0].appendChild(ulElement)
-
-    // Add Class Ul
-    ulElement.classList.add("menu__booking")
-    ulElement.setAttribute('id', "menu__booking")
-
-    //  Add Class Li
-    liFirst.classList.add("menu__booking__item")
-    liSecond.classList.add("menu__booking__item")
-    liThird.classList.add("menu__booking__item")
-    liFour.classList.add("menu__booking__item")
-    liFive.classList.add("menu__booking__item")
-
-
-    // ADD CLASS LI W/ARROW FUNCTIONS
-
-    var clasesLi = document.getElementsByTagName('li')
-    console.log(clasesLi)
-
+    let menuContainer = document.createElement('ul')    
+    menuContainer.classList.add('menu__booking')
+    menuContainer.setAttribute('id','menu__booking')
     
-
-    // const addClase = clasesLi.forEach(addClass);
-
-    // const addClass = (arr) => arr.classList.add("prueba")
-
+    let arrMenu = ['Hoteles', 'Ofertas', 'Viajes', 'Ayuda', 'Cancelaciones']
+    
+    arrMenu.forEach( (menu) => {
+        
+        let liMenu = document.createElement('li')
+        liMenu.classList.add('menu__booking__item')
+        liMenu.textContent = menu
+        menuContainer.appendChild(liMenu)
+    })
+    
+    document.getElementsByTagName('body')[0].appendChild(menuContainer)
+    
+    
     
 /**
- * Ejercicio 2.
- * Dado el siguiente Array de objetos "objPromesas"
- * Crear una funcion para Formar el markup necesario para que se vea asi
- * https://ibb.co/hWSvpx5
+ * Dado un array
+ * ['colima', 'colombia','Estado de mexico']
  * 
- * NOTA: recuerda agregas el CSS necesario para lograr este objetivo
+ * EScuchar el evento keyup en un input
+ * Filtrar del array las coincidencias
+ * Pintar las coincidencias en una lista
  * 
  */
 
- let objPromesas = [
+let cities = ['colima', 'colombia','Estado de mexico']
+
+const filterCity = () => {
+    // filtrar ciudades
+    let citySearch = document.querySelector('#name__city').value
+    let citiesFiltered = cities.filter( (city) => {
+        if(city.includes(citySearch) === true){
+            return city
+        }
+    })
+
+    // creo el layout con las ciudades filtradas
+    let lista = ''
+    citiesFiltered.forEach( (value) => {
+        lista += `<li>${value}</li>`
+    })
+
+    // agrego el layout
+    document.querySelector('#listCity').innerHTML = lista
+}
+
+
+
+let koders = [
     {
-        imagen: 'https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/2021-07/hotel1.png',
-        titulo: 'LA MAYOR COBERTURA',
+        name: 'emilio',
+        age: 30,
+        city: 'Guadalajara'
     },
     {
-        imagen: 'https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/2021-07/icono_desayuno_cortesia_2_0.png',
-        titulo: 'DESAYUNO EN CORTESÍA*',
+        name: 'juan',
+        age: 30,
+        city: 'guanajuato'
     },
     {
-        imagen: 'https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/2021-07/icono_cancelacion_flexible_0.png',
-        titulo: 'CANCELACIÓN SIN COSTO**',
-    },
-    {
-        imagen: 'https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/2021-07/icono_wifi_cortesia_2_0.png',
-        titulo: 'WIFI EN CORTESÍA',
+        name: 'Brisset',
+        age: 37,
+        city: 'Lima'
     }
 ]
 
 
-    let container = document.createElement('section')
-    container.classList.add('grid__services')
+// FUncion => tarea especifica
 
-    objPromesas.forEach( ( service ) => {
-        let divService = document.createElement('div')
-        divService.classList.add('grid__services__item')
+const filterKoders = () => {
+    // filtrar ciudades
+    let KoderSearch = document.querySelector('#name__koder').value.toLowerCase()
+    let KoderTerm = document.querySelector('#filterby').value.toLowerCase()
+    console.log(KoderTerm)
 
-        let imgService = document.createElement('img')
-        imgService.classList.add('src', service.imagen)
+    let kodersFiltered = koders.filter( (koder) => {
+        console.log(koder)
 
-        let titleService = document.createElement('h3')
-        titleService.textContent = service.titulo
+        // if( koder.name.toLowerCase().includes(KoderSearch) ){
+        //     return koder  
+        // }
 
-        divService.appendChild(imgService)
-        divService.appendChild(titleService)
-        container.appendChild(divService)
+        
+        let koderTerm = typeof koder[KoderTerm] !== 'number' ? koder[KoderTerm].toLowerCase() : koder[KoderTerm]
+        console.log(koderTerm)
+
+        if(KoderTerm === 'age') {
+            if((koderTerm).toString().includes(KoderSearch) === true){
+                return koder
+            }
+        } else  {
+            if(koderTerm.includes(KoderSearch) === true){
+                return koder
+            }
+        }
     })
 
-    document.getElementsByTagName('body')[0].appendChild(container)
+    console.log(kodersFiltered)
 
-/**
- *  Tarea 2
- * Estudiar lo siguiente:
- * 1. innerHTML 
- * 2. insertBefore() lo inserta antes del elemento que le indiques
- * 3. insertAfter() Lo inserta despuies del elemento que le indiques
- * 4. append() Inseta el elemento como ultimo hijo del padre seleccionado
- * 5. prepend() Inserta el elemento como primer hijo del padre seleccionado
- * 6. removeChild() Remueve el hijo que le indiques, retorna ese hijo removido
- * 7. DOM events click, dblclick, focus, focusin, focusout
- * 
- */
+    // creo el layout con las ciudades filtradas
+    let lista = ''
+    kodersFiltered.forEach( (koder) => {
+        lista += `
+            <li>
+                <strong>${koder.name}</strong>
+                <span>${koder.age} años</span>
+                <span>${koder.city}</span>
+            </li>
+        `
+    })
+    console.log(lista)
+
+    // agrego el layout
+    document.querySelector('#listKoders').innerHTML = lista
+}
+
+const filterKoder = () => {
+    filterKoders()
+}
+
+
+
+const changeFilter = () => {
+    filterKoders()
+}
+
+const orderfilter = () => {
+    let KoderSearch = document.querySelector('#name__koder').value.toLowerCase()
+    let KoderTerm = document.querySelector('#order').value.toLowerCase()
+    
+}
