@@ -1,9 +1,33 @@
 // POST crear datos
 const createUser =  (objPost) => {
-    const xhttp = new XMLHttpRequest()
-    xhttp.open( "POST" , "https://emmmed-dev-default-rtdb.firebaseio.com/posts/.json", true)
-    xhttp.onload = function(data) {
-        if(data.target.status === 200){
+    // const xhttp = new XMLHttpRequest()
+    // xhttp.open( "POST" , "https://emmmed-dev-default-rtdb.firebaseio.com/posts/.json", true)
+    // xhttp.onload = function(data) {
+    //     if(data.target.status === 200){
+    //         document.querySelector('#title').value = ''
+    //         document.querySelector('#author').value = ''
+    //         document.querySelector('#timetoread').value = ''
+    //         document.querySelector('#resume').value = ''
+    //         let res = JSON.parse(data.target.response )
+    //         let idPost = res.name
+    //         document.getElementById('post__id').innerText = idPost
+    //         document.getElementById('alert__response').classList.remove('d-none')
+    //     }
+    // }
+    // xhttp.send( JSON.stringify(objPost) )
+
+    fetch('https://emmmed-dev-default-rtdb.firebaseio.com/posts/.json', {
+        method: 'POST',
+        header: {
+            "content-type" : "application/json" 
+        },
+        body : JSON.stringify(objPost)
+    })
+        .then( ( response ) => {
+        return response.json
+    })
+        .then( ( response ) => {
+        if(response.target.status === 200){
             document.querySelector('#title').value = ''
             document.querySelector('#author').value = ''
             document.querySelector('#timetoread').value = ''
@@ -12,10 +36,12 @@ const createUser =  (objPost) => {
             let idPost = res.name
             document.getElementById('post__id').innerText = idPost
             document.getElementById('alert__response').classList.remove('d-none')
-        }
-    }
-    xhttp.send( JSON.stringify(objPost) )
-}
+        }})
+    }    
+    
+    
+
+
 
 
 let send__post = document.querySelector('#send__post')
