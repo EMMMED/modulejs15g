@@ -1,7 +1,7 @@
 
 const getPosts = (calback) => {
     const xhttp = new XMLHttpRequest()
-    xhttp.open('GET', '')
+    xhttp.open('GET', 'https://emmmed-dev-default-rtdb.firebaseio.com/.json')
     xhttp.onload = function(data) {
         if(data.target.status === 200){
             calback(data.target.response)
@@ -14,6 +14,7 @@ const printPost = (post) => {
     let parsedPosts = JSON.parse(post)
     for(post in parsedPosts) {
         let {title, timetoread, resume, author } = parsedPosts[post]
+        let layout = ''
         layout += `
         <div class="col-12 col-md-4 mb-4">
             <div class="card text-dark bg-light">
