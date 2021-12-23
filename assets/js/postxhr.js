@@ -39,11 +39,6 @@ const createUser =  (objPost) => {
         }})
     }    
     
-    
-
-
-
-
 let send__post = document.querySelector('#send__post')
 send__post.addEventListener('click', () => {
 
